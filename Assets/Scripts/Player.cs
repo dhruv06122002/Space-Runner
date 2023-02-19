@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,5 +26,11 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(0, PlayerDirection.y * PlayerSpeed);
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("collide");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
